@@ -14,7 +14,10 @@ class NewsController extends Controller
      */
     public function index()
     {
-        return view('admin/news/index');
+        $news = $this->getCategory();
+        return view('admin/news/index', [
+            'newsList' => $news,
+        ]);
     }
 
     /**
@@ -55,9 +58,15 @@ class NewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($idCategory, $idNews)
     {
-        return view('admin/news/edit');
+        
+        $category = $this->getCategory($idCategory);
+        $news = $this->getNews($idNews);
+        //dd($news);
+        return view('admin/news/edit', [
+            'newsList' => $news,
+        ]);
     }
 
     /**

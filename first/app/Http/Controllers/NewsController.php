@@ -34,4 +34,14 @@ class NewsController extends Controller
             'news' => $news,
         ]);
     }
+
+    public function feedback()
+    {
+        return view('/news/feedback');
+    }
+
+    public function uploading()
+    {
+        return view('/news/uploading');
+    }
 }
